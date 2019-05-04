@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Visiteur {{ app.session.get('loginVis')}} </title>
+		<style>
+			h3{
+				color:white;
+				background-color:royalblue;
+				width:500px;
+				height:40px;
+				border-radius: 10px;
+				margin-left:auto;
+				margin-right:auto;
+				line-height:40px;
+			}
+			a {
+				color:royalblue;
+			}
+			th{
+				background-color:royalblue;
+				color:white;
+				padding: 8px;
+			}
+			td.contenu{
+				padding: 8px;
+				background-color:#9090ff;
+			}
+			.btn{
+				width:140px;
+				height:30px;
+				background-color:royalblue;
+				color:white;
+				border-radius: 6px;
+			}
+
+		</style>
+	</head>
+	<a href="{{ path('gsb_fichefrais') }}">Retour fiche de vos frais</a>
+	<a href="{{ path('gsb_lignefraisforfait_consulter', {'mois' : mois}) }}">Consulter les frais forfaitisé</a>
+	<center>
+		<h3>Liste de vos Frais hors forfait du {{mois}}/{{anneeCours}}</h3>
+		<br/>
+		<table>
+			<tr>
+				<th>Frais</th>
+				<th>Montant du Frais</th>
+				<th>Date du frais</th>
+			</tr>
+
+			{% for unLfhf in lfhf %}
+			<tr>
+				<td class="contenu">{{unLfhf.libelleLfhf}}</td>
+				<td class="contenu">{{unLfhf.montantLfhf}}</td>
+				<td class="contenu">{{unLfhf.dateLfhf|date('d/m/Y')}}</td>
+				{% if mois == moisCours %}
+				<td><form action="{{ path('gsb_lignefraishorsforfait_supprimer', {'id' : unLfhf.id,'mois' : mois}) }}">
+					<input class="btn" type="submit" value="Supprimer frais" />			
+				</form></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+		{% if mois == moisCours %}
+		<a href="{{ path('gsb_lignefraishorsforfait_formulaire') }}">Ajouter frais hors forfait</a>
+		{% endif %}
+	</center>
+</html>

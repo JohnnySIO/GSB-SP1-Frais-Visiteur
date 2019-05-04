@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>Visiteur {{app.session.get("loginVis")}}</title>
+		<style>
+			body{
+				background-color:#B4B4FF;
+			}
+			h3{
+				color:white;
+				background-color:royalblue;
+				width:500px;
+				height:40px;
+				border-radius: 10px;
+				margin-left:auto;
+				margin-right:auto;
+				line-height:40px;
+			}
+			a{
+				color:white;
+			}
+			.champs{
+				color:royalblue;
+				padding: 10px;
+				background-color:white;
+			}
+			.contenu{
+				color:white;
+				background-color:#B4B4FF;
+				padding: 5px;
+				width:300px;
+			}
+			.btn{
+				color:white;
+				padding: 5px;
+				background-color:royalblue;
+				width:100px;
+				border-radius: 10px;
+				font-weight:bold;
+		}
+
+	</style>
+	</head>
+
+	<body>
+		<a href="{{ path('gsb_fichefrais') }}">Retour fiche de vos frais</a>
+		<center>
+			<h3>Formulaire Frais Hors Forfait</h3>
+			{{ form_start(form) }}
+
+			<div class="champs">
+			<b>{{ form_label(form.libelleLfhf, "Libellé du frais non forfaitisé :") }}</b>
+			<br><br>
+			{{ form_widget(form.libelleLfhf, {'attr': {'class':'contenu'}}) }}
+			</div>
+
+			<div class="champs">
+				<b>{{ form_label(form.montantLfhf, "Montant du frais (€) :") }}</b>
+				<br><br>
+				{{ form_widget(form.montantLfhf, {'attr': {'class':'contenu'}}) }}
+			</div>
+
+			<div class="champs">
+				<p>{{form_widget(form.ajouter, {'attr': {'class':'btn'}})}}</p>
+			</div>
+
+			{{ form_errors(form) }}
+
+			{{ form_end(form)}}
+		</center>
+	</body>
+</html>

@@ -1,0 +1,157 @@
+<?php
+
+namespace GSB\VisiteurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LigneFraisForfait
+ *
+ * @ORM\Table(name="ligne_frais_forfait")
+ * @ORM\Entity(repositoryClass="GSB\VisiteurBundle\Repository\LigneFraisForfaitRepository")
+ */
+class LigneFraisForfait
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="GSB\VisiteurBundle\Entity\Visiteur")
+     * @ORM\JoinColumn(name="id_vis", referencedColumnName="id")
+     */
+    private $idVis;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="GSB\VisiteurBundle\Entity\FicheFrais")
+     * @ORM\JoinColumn(name="mois_ff", referencedColumnName="mois_ff")
+     */
+    private $moisFf;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="GSB\VisiteurBundle\Entity\FraisForfait")
+     * @ORM\JoinColumn(name="id_frais", referencedColumnName="id")
+     */
+    private $idFrais;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="quantite_lff", type="integer")
+     */
+    private $quantiteLff;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set idVis
+     *
+     * @param integer $idVis
+     *
+     * @return LigneFraisForfait
+     */
+    public function setIdVis($idVis)
+    {
+        $this->idVis = $idVis;
+
+        return $this;
+    }
+
+    /**
+     * Get idVis
+     *
+     * @return int
+     */
+    public function getIdVis()
+    {
+        return $this->idVis;
+    }
+
+    
+
+    /**
+     * Set idFrais
+     *
+     * @param integer $idFrais
+     *
+     * @return LigneFraisForfait
+     */
+    public function setIdFrais($idFrais)
+    {
+        $this->idFrais = $idFrais;
+
+        return $this;
+    }
+
+    /**
+     * Get idFrais
+     *
+     * @return int
+     */
+    public function getIdFrais()
+    {
+        return $this->idFrais;
+    }
+
+    /**
+     * Set quantiteLff
+     *
+     * @param integer $quantiteLff
+     *
+     * @return LigneFraisForfait
+     */
+    public function setQuantiteLff($quantiteLff)
+    {
+        $this->quantiteLff = $quantiteLff;
+
+        return $this;
+    }
+
+    /**
+     * Get quantiteLff
+     *
+     * @return int
+     */
+    public function getQuantiteLff()
+    {
+        return $this->quantiteLff;
+    }
+
+    /**
+     * Set moisFf
+     *
+     * @param integer $moisFf
+     *
+     * @return LigneFraisForfait
+     */
+    public function setMoisFf($moisFf)
+    {
+        $this->moisFf = $moisFf;
+
+        return $this;
+    }
+
+    /**
+     * Get moisFf
+     *
+     * @return integer
+     */
+    public function getMoisFf()
+    {
+        return $this->moisFf;
+    }
+}

@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Déconnexion Visiteur</title>
+		<style>
+			body{
+				background-color:#B4B4FF;
+			}
+			h3{
+				color:white;
+			}
+			.champs{
+				color:royalblue;
+				padding: 10px;
+				background-color:white;
+				border-radius: 10px;
+			}
+			.btn{
+				color:white;
+				padding: 5px;
+				background-color:royalblue;
+				width:200px;
+				font-size:20px;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<br><br><br><br>
+		<h3><center>Aurevoir</center></h3>
+
+		<br><br>
+
+		<center>
+			<i class="champs">Vous êtes à présent déconnecté</i>
+			<br><br><br>
+			<form action="{{ path('gsb_connexion_visiteur') }}">
+				<input class="btn" type="submit" value="Retour à l'accueil" />			
+			</form>  
+		</center>
+    
+	</body>
+</html>

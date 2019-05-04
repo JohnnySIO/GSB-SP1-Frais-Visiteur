@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Visiteur {{ app.session.get('loginVis')}} </title>
+		<style>
+			h3{
+				color:white;
+				background-color:royalblue;
+				width:500px;
+				height:40px;
+				border-radius: 10px;
+				margin-left:auto;
+				margin-right:auto;
+				line-height:40px;
+			}
+
+			a {
+				color:royalblue;
+			}
+			
+			.btn{
+				width:200px;
+				height:50px;
+				background-color:#9090ff;
+				color:white;
+				border-radius: 6px;
+				font-size:20px;
+				font-weight:bold;
+			}
+		
+		</style>
+	</head>
+
+	<body>
+		<a href="{{ path('gsb_fichefrais') }}">Retour fiche de vos frais</a>
+		<br>
+		<h3><center>Ajouter un frais du {{moisCours}}/{{anneeCours}}</center></h3>
+
+		<br><br><br><br>
+
+		<center>
+			<form action="{{ path('gsb_lignefraisforfait_formulaire') }}">
+				<input class="btn" type="submit" value="Forfaitisé" />			
+			</form>
+			<br>
+			<form action="{{ path('gsb_lignefraishorsforfait_formulaire') }}">
+				<input class="btn" type="submit" value="Hors forfait" />			
+			</form>
+		</center>
+    
+	</body>
+</html>

@@ -1,0 +1,49 @@
+gsb_connexion_visiteur:
+    path:   /visiteur
+    defaults: { _controller: GSBVisiteurBundle:Connexion:connexion }
+
+gsb_deconnexion_visiteur:
+    path:   /visiteur/deconnexion
+    defaults: { _controller: GSBVisiteurBundle:Connexion:deconnexion }
+
+gsb_fichefrais:
+    path:   /visiteur/fichefrais
+    defaults: { _controller: GSBVisiteurBundle:Consulter:consulterFf }
+
+gsb_choix_frais_form:
+    path:   /visiteur/fichefrais/ajout
+    defaults: { _controller: GSBVisiteurBundle:Choix:choixForm }
+
+gsb_lignefraisforfait_formulaire:
+    path:     /visiteur/fichefrais/ajout/lignefraisforfait
+    defaults: { _controller: GSBVisiteurBundle:Formulaire:formLff }
+
+gsb_lignefraishorsforfait_formulaire:
+    path:     /visiteur/fichefrais/ajout/lignefraishorsforfait
+    defaults: { _controller: GSBVisiteurBundle:Formulaire:formLfhf }
+
+gsb_choix_frais_consulter:
+    path:   /visiteur/fichefrais/consulter/{mois}
+    defaults: { _controller: GSBVisiteurBundle:Choix:choixConsulter }
+
+gsb_lignefraisforfait_consulter:
+    path:     /visiteur/fichefrais/consulter/{mois}/lignefraisforfait
+    defaults: { _controller: GSBVisiteurBundle:Consulter:consulterLff }
+
+gsb_lignefraisforfait_supprimer:
+    path:     /visiteur/fichefrais/consulter/{mois}/lignefraisforfait/{id}/supprimer
+    defaults: { _controller: GSBVisiteurBundle:Supprimer:supprimerLff }
+
+gsb_lignefraishorsforfait_consulter:
+    path:     /visiteur/fichefrais/consulter/{mois}/lignefraishorsforfait
+    defaults: { _controller: GSBVisiteurBundle:Consulter:consulterLfhf }
+
+gsb_lignefraishorsforfait_supprimer:
+    path:     /visiteur/fichefrais/consulter/{mois}/lignefraishorsforfait/{id}/supprimer
+    defaults: { _controller: GSBVisiteurBundle:Supprimer:supprimerLfhf }
+
+gsb_fichefrais_form:
+    path:   /visiteur/fichefrais/nouveau
+    defaults: { _controller: GSBVisiteurBundle:Formulaire:formFf }
+
+

@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Visiteur {{ app.session.get('loginVis')}}</title>
+			<style>
+			body{
+				background-color:#B4B4FF;
+			}
+			h3{
+				color:white;
+			}
+			.champs{
+				color:royalblue;
+				padding: 10px;
+				background-color:white;
+				border-radius: 10px;
+			}
+			.btn{
+				color:white;
+				padding: 5px;
+				background-color:royalblue;
+				width:120px;
+				font-size:20px;
+				border-radius: 10px;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<br><br><br><br>
+		<h3><center>Bienvenue {{ app.session.get('nomVis') }}
+		{{ app.session.get('prenomVis') }}</center></h3>
+
+		<br>
+		<br>
+
+		<center>
+			<i class="champs">Vous êtes à présent connecté</i>
+			<br><br><br>
+			<form action="{{ path('gsb_fichefrais') }}">
+				<input class="btn" type="submit" value="Continuer" />			
+			</form>
+		</center>
+    
+	</body>
+</html>

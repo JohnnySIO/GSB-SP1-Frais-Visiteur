@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+        <title>Visiteur {{ app.session.get('loginVis')}}</title>
+	<style>
+		body{
+			background-color:#B4B4FF;
+		}
+		h3{
+			color:white;
+			background-color:royalblue;
+			width:500px;
+			height:40px;
+			border-radius: 10px;
+			margin-left:auto;
+			margin-right:auto;
+			line-height:40px;
+		}
+		.champs{
+			color:royalblue;
+			padding: 10px;
+			background-color:white;
+			border-radius: 10px;
+		}
+		.btn{
+			color:white;
+			padding: 5px;
+			background-color:royalblue;
+			width:120px;
+			font-size:20px;
+			border-radius: 10px;
+		}
+
+	</style>
+	</head>
+
+	<body>
+	<center>
+		<h3>Création d'une nouvelle fiche</h3>
+
+		<br><br><br><br>
+
+		<i class="champs">Votre fiche du {{mois}}/{{anneeCours}} est désormais crée</i>
+
+		<br><br><br><br>
+		{{ form_start(form) }}
+
+		<button type="submit" class="btn">Continuer</button>
+
+		{{ form_errors(form) }}
+
+		{{ form_end(form)}}
+	</center>
+	</body>
+</html>
+
+	
+            
+         

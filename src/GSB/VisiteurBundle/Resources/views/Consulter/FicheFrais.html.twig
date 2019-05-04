@@ -1,0 +1,107 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title>Visiteur {{ app.session.get('loginVis')}} </title>
+	<style>
+		h3{
+			color:white;
+			background-color:royalblue;
+			width:500px;
+			height:40px;
+			border-radius: 10px;
+			margin-left:auto;
+			margin-right:auto;
+			line-height:40px;
+		}
+		.darkblue{
+			background-color:royalblue;
+			color:white;
+		}
+		th{
+			padding: 8px;
+		}
+		td.ff{
+			padding: 8px;
+			background-color:#9090ff;
+		}
+		td.cours{
+			padding: 8px;
+			background-color:royalblue;
+			color:white;
+		}
+		a {
+			color:royalblue;
+		}
+		.info{
+			color:royalblue;
+			font-size:15px;
+		}
+		.btn{
+			margin-top:10px;
+			width:100px;
+			height:30px;
+			background-color:royalblue;
+			color:white;
+			border-radius: 6px;
+		}
+		
+	</style>
+	</head>
+	<body>
+	<a href="{{ path('gsb_deconnexion_visiteur')}}">Se déconnecter</a>
+		
+	<center>
+		<h3>Liste de vos Fiche Frais {{anneeCours}}</h3>
+		<br/>
+
+		<table>
+			<tr >
+				<th></th>
+				<th class="darkblue">Mois</th>
+				<th class="darkblue">Nb Justificatifs</th>
+				<th class="darkblue">Montant valide</th>
+				<th class="darkblue">Date de création</th>
+				<th class="darkblue">État</th>
+			</tr>
+
+			{% for unFf in ff %}
+			<tr class="contenu">
+			{% if unFf.moisFf == mois %}
+			<td class="info"><b>Mois en cours</b>
+			<td class="cours">{{ unFf.moisFf }}</td>
+			<td class="cours">{{ unFf.nbJustificatifsFf }}</td>
+			<td class="cours">{{ unFf.montantValideFf }} €</td>
+			<td class="cours">{{ unFf.dateCreationFf|date('d/m/Y') }}</td>
+			<td class="cours">{{ unFf.libelleEtat }}</td>
+			{% else %}
+			<td></td>
+			<td class="ff">{{ unFf.moisFf }}</td>
+			<td class="ff">{{ unFf.nbJustificatifsFf }}</td>
+			<td class="ff">{{ unFf.montantValideFf }} €</td>
+			<td class="ff">{{ unFf.dateCreationFf|date('d/m/Y') }}</td>
+			<td class="ff">{{ unFf.libelleEtat }}</td>
+			{% endif %}
+			
+			
+
+			<td><form action="{{ path('gsb_choix_frais_consulter', {'mois' : unFf.moisFf}) }}">
+				<input class="btn" type="submit" value="Voir frais" />			
+			</form></td>
+			{% if unFf.moisFf == mois %}
+			<td><form action="{{ path('gsb_choix_frais_form') }}">
+				<input class="btn" type="submit" value="Ajouter frais" />			
+			</form></td>
+			{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+		
+
+		{% if estAjd == 0  %}
+		<a href="{{ path('gsb_fichefrais_form') }}">Ajouter le 1er frais du mois</a>
+		
+		{% endif %}
+
+	</center>
+	</body>
+</html>
