@@ -40,7 +40,7 @@ class FormulaireController extends Controller {
 	$transdate = date('m-d-Y', time());
       	$d = date_parse_from_format("m-d-y",$transdate);
     	$moisCours = $d["month"];
-	$anneeCours = $d["year"];
+	$anneeCours = $d["year"] - 1;
 
         $ff = new FicheFrais();
 
